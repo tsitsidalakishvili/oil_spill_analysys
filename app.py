@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-from ydata_profiling import ProfileReport
+#from ydata_profiling import ProfileReport
 import plotly.graph_objs as go
 import plotly.express as px
 from plotly.subplots import make_subplots
@@ -60,12 +60,7 @@ if selected_tab == "Oil spill analysis":
             st.write("Uploaded CSV file:")
             st.dataframe(df)  # Display the uploaded data as a table
             
-            # Generate profile report
-            if st.button('Generate Profile Report'):
-                st.write('Generating profile report...')
-                profile = ProfileReport(df, explorative=True)
-                st_profile_report = st.components.v1.html(profile.to_html(), height=500, scrolling=True)
-
+  
 
             # NEW: Display initial records and dataset information
             with st.expander("Initial Records in Dataset"):
