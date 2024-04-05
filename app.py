@@ -155,7 +155,6 @@ if selected_tab == "Oil spill analysis":
             appropriate precautions for the future.
             
             **Use Case Example**
-            - Predict future 'Oil volume (m3/day)' to plan production using data.
             
             Libraries used:
             - Pandas, NumPy for data handling
