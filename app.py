@@ -14,7 +14,6 @@ import io
 
 import pandas as pd
 import streamlit as st
-from pandas_profiling import ProfileReport
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestRegressor  # Add this import statement
 from sklearn.metrics import mean_squared_error, r2_score
