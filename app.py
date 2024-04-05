@@ -173,9 +173,7 @@ if selected_tab == "Oil spill analysis":
 
     # Markdown section to display information about the dataset
     st.sidebar.markdown("""
-    ### Oil Pipeline Accidents, 2010-Present
-    Causes, injuries/fatalities, and costs of pipeline leaks and spills
-    Last Updated: 7 years ago (Version 1)
+
 
     **About this Dataset**
     This database includes a record for each oil pipeline leak or spill reported to the Pipeline and Hazardous Materials Safety Administration since 2010. These records include the incident date and time, operator and pipeline, cause of incident, type of hazardous liquid and quantity lost, injuries and fatalities, and associated costs.
