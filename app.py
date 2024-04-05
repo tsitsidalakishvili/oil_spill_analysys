@@ -171,13 +171,7 @@ if selected_tab == "Oil spill analysis":
     uploaded_file = st.sidebar.file_uploader("Upload a CSV file", type=["csv"])
     
 
-    # Markdown section to display information about the dataset
-    st.sidebar.markdown("""
-
-
-    **About this Dataset**
-    This database includes a record for each oil pipeline leak or spill reported to the Pipeline and Hazardous Materials Safety Administration since 2010. These records include the incident date and time, operator and pipeline, cause of incident, type of hazardous liquid and quantity lost, injuries and fatalities, and associated costs.
-    """)
+    
 
 
     if st.sidebar.button('Load Sample Data'):
@@ -187,6 +181,15 @@ if selected_tab == "Oil spill analysis":
         st.dataframe(df)
         analyze_data(df)  # Call to function that analyzes the data and displays charts
         
+    # Markdown section to display information about the dataset
+    st.sidebar.markdown("""
+
+
+    **About this Dataset**
+    This database includes a record for each oil pipeline leak or spill reported to the Pipeline and Hazardous Materials Safety Administration since 2010. These records include the incident date and time, operator and pipeline, cause of incident, type of hazardous liquid and quantity lost, injuries and fatalities, and associated costs.
+    """)
+
+    
     elif uploaded_file is not None:
         # User uploads a file, read the file
         df = pd.read_csv(uploaded_file)
