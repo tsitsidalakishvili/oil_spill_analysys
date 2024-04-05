@@ -15,6 +15,8 @@ st.title('Oil spill analysis')
 tabs = ["Oil spill analysis", "ML Model Building"]
 selected_tab = st.sidebar.radio("Select a tab:", tabs)
 
+
+
 def analyze_data(df):
     # Analysis and visualization code goes here
     
@@ -97,6 +99,8 @@ def analyze_data(df):
     fig6.update_layout(title='Most Frequent Oil Spillers (Bar Chart)')
     st.plotly_chart(fig6, use_container_width=True)
 
+
+
     # Map of accidents by the most frequent spillers under the bar chart
     st.write("Locations of Accidents by Most Frequent Spillers (Map)")
     fig_map = px.scatter_mapbox(
@@ -113,14 +117,42 @@ def analyze_data(df):
     fig_map.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
     st.plotly_chart(fig_map, use_container_width=True)
 
+    # Add this code here to create a download button for the JSON file
+    json_str = df.to_json(orient='records')
+    st.download_button(
+        label="Download Data as JSON",
+        data=json_str,
+        file_name='oil_spill_data.json',
+        mime='application/json'
+    )
+
+
+
+
+
+
 # Oil spill analysis tab
 if selected_tab == "Oil spill analysis":
     # Provide information about the app
     with st.expander('About this app'):
         st.write("""
+            **What is this app about?**
+            An oil spill is the release of a liquid petroleum hydrocarbon into the environment, 
+            especially into the marine ecosystem, due to human activity, and is a form of pollution. 
+            The specific location of the spill, the types of flora and fauna in the area, 
+            the volume and nature of the oil, among other factors, can determine the extent of the damage caused by an oil spill. 
+            Currently, no solution exists that can preemptively identify the causes of these oil spills and attempt to mitigate them.
+            
             **What can this app do?**
-            - Build a machine learning model to predict various outcomes based on oil well operation parameters.
-            - The user can upload a CSV file for analysis and generate a comprehensive profile report.
+            - With data analysis, this app aims to enhance our understanding of the reasons behind oil spills 
+            and to contribute to their reduction by suggesting appropriate measures.
+            - Users can upload a CSV file containing oil spill data for analysis and generate a comprehensive profile report.
+            - The app provides visualizations that reveal critical insights, such as equipment failure being a primary cause of oil spillage.
+            - It identifies major contributors to oil spills, like "Teppco Crude Pipeline", and assesses the financial, 
+            environmental, and operational impacts.
+            - By analyzing loss in comparison with the overall costs, we can quantify our losses and understand the gravity of each spill event.
+            - Such analysis not only helps us comprehend our current situation but also assists in preparing 
+            appropriate precautions for the future.
             
             **Use Case Example**
             - Predict future 'Oil volume (m3/day)' to plan production using data.
@@ -131,6 +163,8 @@ if selected_tab == "Oil spill analysis":
             - Streamlit for the web app
             - Plotly for data visualization
         """)
+
+
 
     # Sidebar for file upload
     st.sidebar.title("Upload or Load Data")
