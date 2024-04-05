@@ -6,7 +6,6 @@ from plotly.subplots import make_subplots
 from collections import Counter
 import io
 from sklearn.impute import SimpleImputer
-from pandas_profiling import ProfileReport
 
 # Set page config
 st.set_page_config(page_title='Oil spill analysis', page_icon='🛢️', layout="wide")
