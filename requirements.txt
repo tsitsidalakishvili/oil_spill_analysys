@@ -1,0 +1,9 @@
+streamlit
+pandas
+numpy
+scikit-learn
+altair
+python-dateutil
+pytz
+zipfile36; python_version < "3.7"
+streamlit-aggrid
