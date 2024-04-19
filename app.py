@@ -89,13 +89,13 @@ def analyze_data(df):
     # Additional rows and charts as needed...
     
     # Chart 6: Most Frequent Oil Spillers 
-    most_frequent_spillers = df['Operator ID'].value_counts().nlargest(20).index
-    df_top_spillers = df[df['Operator ID'].isin(most_frequent_spillers)]
+    most_frequent_spillers = df['Operator Name'].value_counts().nlargest(20).index
+    df_top_spillers = df[df['Operator Name'].isin(most_frequent_spillers)]
 
     # Layout for the Most Frequent Oil Spillers chart
     st.write("Top 20 Most Frequent Spillers")
-    top_spiller_counts = df_top_spillers['Operator ID'].value_counts()
-    fig6 = px.bar(top_spiller_counts, x=top_spiller_counts.values, y=top_spiller_counts.index, orientation='h', labels={'y': 'Operator ID'})
+    top_spiller_counts = df_top_spillers['Operator Name'].value_counts()
+    fig6 = px.bar(top_spiller_counts, x=top_spiller_counts.values, y=top_spiller_counts.index, orientation='h', labels={'y': 'Operator Name'})
     fig6.update_layout(title='Most Frequent Oil Spillers (Bar Chart)')
     st.plotly_chart(fig6, use_container_width=True)
 
@@ -107,9 +107,9 @@ def analyze_data(df):
         df_top_spillers, 
         lat='Accident Latitude', 
         lon='Accident Longitude', 
-        color='Operator ID',
+        color='Operator Name',
         hover_name='Accident City', 
-        hover_data=['Accident County', 'Accident State', 'Operator ID'], 
+        hover_data=['Accident County', 'Accident State', 'Operator Name'], 
         zoom=3, 
         height=600
     )
