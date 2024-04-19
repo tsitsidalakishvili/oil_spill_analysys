@@ -157,18 +157,26 @@ if selected_tab == "Oil spill analysis":
 
 
 
-    # Sidebar for file upload
+    # Sidebar for file upload under an expander
     st.sidebar.title("Upload or Load Data")
-    with st.expander("Upload or Load Data")
+    
+    # Using an expander for uploading files
+    with st.sidebar.expander("Upload CSV Data"):
         uploaded_file = st.sidebar.file_uploader("Upload a CSV file", type=["csv"])
+        if uploaded_file is not None:
+            # Assuming the CSV file has a header row, adjust accordingly if not
+            df = pd.read_csv(uploaded_file)
+            st.write("Uploaded Data:")
+            st.dataframe(df)
+            # You might want to add a function call here to analyze the data or similar
+            # analyze_data(df)
     
     # Markdown section to display information about the dataset
     st.sidebar.markdown("""
-
-
     **About this Dataset**
     This database includes a record for each oil pipeline leak or spill reported to the Pipeline and Hazardous Materials Safety Administration since 2010. These records include the incident date and time, operator and pipeline, cause of incident, type of hazardous liquid and quantity lost, injuries and fatalities, and associated costs.
     """)
+
 
 
     
