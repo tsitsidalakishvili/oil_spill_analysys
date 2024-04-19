@@ -158,8 +158,8 @@ if selected_tab == "Oil spill analysis":
 
 
     # Sidebar for file upload
-    st.sidebar.title("Upload or Load Data")
-    uploaded_file = st.sidebar.file_uploader("Upload a CSV file", type=["csv"])
+    #st.sidebar.title("Upload or Load Data")
+    #uploaded_file = st.sidebar.file_uploader("Upload a CSV file", type=["csv"])
     
     # Markdown section to display information about the dataset
     st.sidebar.markdown("""
