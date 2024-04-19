@@ -160,16 +160,7 @@ if selected_tab == "Oil spill analysis":
     # Sidebar for file upload under an expander
     st.sidebar.title("Upload or Load Data")
     
-    # Using an expander for uploading files
-    with st.sidebar.expander("Upload CSV Data"):
-        uploaded_file = st.sidebar.file_uploader("Upload a CSV file", type=["csv"])
-        if uploaded_file is not None:
-            # Assuming the CSV file has a header row, adjust accordingly if not
-            df = pd.read_csv(uploaded_file)
-            st.write("Uploaded Data:")
-            st.dataframe(df)
-            # You might want to add a function call here to analyze the data or similar
-            # analyze_data(df)
+
     
     # Markdown section to display information about the dataset
     st.sidebar.markdown("""
