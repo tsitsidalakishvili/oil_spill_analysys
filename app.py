@@ -145,29 +145,8 @@ def analyze_data(df):
 
 # Oil spill analysis tab
 if selected_tab == "Oil spill analysis":
-    # Provide information about the app
     with st.expander('About this app'):
         st.write("""
-            **What is this app about?**
-            An oil spill is the release of a liquid petroleum hydrocarbon into the environment, 
-            especially into the marine ecosystem, due to human activity, and is a form of pollution. 
-            The specific location of the spill, the types of flora and fauna in the area, 
-            the volume and nature of the oil, among other factors, can determine the extent of the damage caused by an oil spill. 
-            Currently, no solution exists that can preemptively identify the causes of these oil spills and attempt to mitigate them.
-            
-            **What can this app do?**
-            - With data analysis, this app aims to enhance our understanding of the reasons behind oil spills 
-            and to contribute to their reduction by suggesting appropriate measures.
-            - Users can upload a CSV file containing oil spill data for analysis and generate a comprehensive profile report.
-            - The app provides visualizations that reveal critical insights, such as equipment failure being a primary cause of oil spillage.
-            - It identifies major contributors to oil spills, like "Teppco Crude Pipeline", and assesses the financial, 
-            environmental, and operational impacts.
-            - By analyzing loss in comparison with the overall costs, we can quantify our losses and understand the gravity of each spill event.
-            - Such analysis not only helps us comprehend our current situation but also assists in preparing 
-            appropriate precautions for the future.
-            
-            **Use Case Example**
-            - Predict future 'Oil volume (m3/day)' to plan production using data.
             
             Libraries used:
             - Pandas, NumPy for data handling
