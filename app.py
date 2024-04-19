@@ -102,23 +102,35 @@ def analyze_data(df):
 
 
     # Map of accidents by the most frequent spillers under the bar chart
+    # Map of accidents by the most frequent spillers under the bar chart
     st.write("Locations of Accidents by Most Frequent Spillers (Map)")
+    
+    # The size can be scaled by a factor if the values are too large/small for visual clarity
+    size_ref = 200 / df_top_spillers['Unintentional Release (Barrels)'].max()
+    
     fig_map = px.scatter_mapbox(
-        df_top_spillers, 
-        lat='Accident Latitude', 
-        lon='Accident Longitude', 
+        df_top_spillers,
+        lat='Accident Latitude',
+        lon='Accident Longitude',
         color='Operator Name',
-        hover_name='Accident City', 
-        hover_data=['Accident County', 'Accident State', 'Operator Name'], 
-        zoom=3, 
+        size='Unintentional Release (Barrels)',  # Adjust marker size based on unintentional releases
+        size_max=15,  # Maximum marker size
+        hover_name='Accident City',
+        hover_data={
+            'Accident County': True,
+            'Accident State': True,
+            'Operator Name': True,
+            'Unintentional Release (Barrels)': ':.2f'  # Display as a float with 2 decimal places
+        },
+        zoom=3,
         height=600
     )
     fig_map.update_layout(mapbox_style="open-street-map")
-    fig_map.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
+    fig_map.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
     st.plotly_chart(fig_map, use_container_width=True)
-
-    # Add this code here to create a download button for the JSON file
-    json_str = df.to_json(orient='records')
+    
+    # Code for the download button (unchanged)
+    json_str = df_top_spillers.to_json(orient='records')
     st.download_button(
         label="Download Data as JSON",
         data=json_str,
